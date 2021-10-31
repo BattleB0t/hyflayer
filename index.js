@@ -10,39 +10,31 @@ const chatRegex = {
 module.exports = function (bot, options) {
   const CHAT_LENGTH_LIMIT = options.chatLengthLimit ?? (bot.supportFeature('lessCharsInChat') ? 100 : 256)
 
-  function execute(message) {
+  function send(message) {
     bot._client.write('chat', { message })
   }
 
   bot.sendToAll = (message, prefix) => {
-    buildAllChat(message, prefix, CHAT_LENGTH_LIMIT).forEach((messageBlock) => {
-      messageBlock.forEach((messagePart) => {
-        execute(messagePart)
-      })
+    buildAllChat(message, prefix, CHAT_LENGTH_LIMIT).forEach((message) => {
+      send(message)
     })
   }
 
   bot.sendToGuild = (message, prefix) => {
-    buildGuildChat(message, prefix, CHAT_LENGTH_LIMIT).forEach((messageBlock) => {
-      messageBlock.forEach((messagePart) => {
-        execute(messagePart)
-      })
+    buildGuildChat(message, prefix, CHAT_LENGTH_LIMIT).forEach((message) => {
+      send(message)
     })
   }
 
   bot.sendToOfficer = (message, prefix) => {
-    buildOfficerChat(message, prefix, CHAT_LENGTH_LIMIT).forEach((messageBlock) => {
-      messageBlock.forEach((messagePart) => {
-        execute(messagePart)
-      })
+    buildOfficerChat(message, prefix, CHAT_LENGTH_LIMIT).forEach((message) => {
+      send(message)
     })
   }
 
   bot.sendToParty = (message, prefix) => {
-    buildPartyChat(message, prefix, CHAT_LENGTH_LIMIT).forEach((messageBlock) => {
-      messageBlock.forEach((messagePart) => {
-        execute(messagePart)
-      })
+    buildPartyChat(message, prefix, CHAT_LENGTH_LIMIT).forEach((message) => {
+      send(message)
     })
   }
 
