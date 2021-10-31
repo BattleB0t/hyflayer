@@ -2,6 +2,7 @@
 
 ![Version](https://img.shields.io/github/package-json/v/itsneyoa/hyflayer?style=for-the-badge)
 [![License: ISC](https://img.shields.io/github/license/itsneyoa/hyflayer?style=for-the-badge)](https://github.com/itsneyoa/hyflayer/blob/master/LICENSE)
+[![CodeFactor](https://www.codefactor.io/repository/github/itsneyoa/hyflayer/badge?style=for-the-badge)](https://www.codefactor.io/repository/github/itsneyoa/hyflayer)
 
 > A mineflayer plugin to handle chat on the Hypixel server.
 
